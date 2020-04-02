@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form-helper>
+        <!-- <form-helper>
             <div slot="form-header">
                 <h3>This is the title of a form</h3>
                 <h1> hello this is h1 tag</h1>
@@ -19,29 +19,41 @@
                <input type="text" placeholder="etc" required />
               
             </div>
+        </form-helper> -->
+         <component v-bind:is="component">    </component>
+        <button v-on:click="component='formOne'">  Show form one </button>
+        <button v-on:click="component='formTwo'">  Show form two </button>  
+       
 
 
-        </form-helper>
+     
+
     </div>
 </template>
 
 <script>
 // Imports
+import formOne from './components/formOne.vue'
+import formTwo from './components/formTwo.vue'
 import formHelper from './components/formHelper.vue'
+
 export default {
     components: {
-        'form-helper': formHelper
+        'form-One': formOne,
+        'form-Two':formTwo,
+        'form-Helper':formHelper
     },
     data () {
         return {
-          title:"hello this  Main slot title"
-        }
-    },
-    methods: {
-        handleSubmit: function(){
-            alert('thanks for submitting');
+        //   title:"hello this  Main slot title"
+        // component:'form-two'
         }
     }
+    // // methods: {
+    // //     handleSubmit: function(){
+    // //         alert('thanks for submitting');
+    // //     }
+    // }
 }
 </script>
 
